@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  # MONGODB services
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    volumes: 
+      - mongo_db:/data/db
+
+
+  # Vulnerable machine
+  app:
+    build: .
+    ports: 
+      - 3000:3000
+    environment: 
+      MONGODB_URL: mongodb://mongo_db:27017/RockRockRock
+      SENDGRID_API_KEY: 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
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}

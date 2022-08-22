@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Fan Mail - Rock! Rock! Rock!</title>
+    <meta name="description" content="New York's Finest Rock Band!">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/disk_2_180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/disk_16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/disk_1_32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/img/disk_2_180x180.png">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
+    <link rel="stylesheet" href="/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="/css/Login-Form-Basic-icons.css">
+    <link rel="stylesheet" href="/css/vanilla-zoom.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">Rock! Rock! Rock!<br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <% if (loggedin) { %>
+                        <li class="nav-item"><a class="nav-link active" href="fanmail">Fan Mail</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tickets">Tickets</a></li>
+                    <%} else { %>
+                        <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register">Register</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page pricing-table-page">
+        <section class="position-relative py-4 py-xl-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Send Fan Mail</h5>
+
+                                <!-- General Form Elements -->
+                                <form action="/users" method="post">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-2 col-form-label">First Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="first_name">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-2 col-form-label">Last Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="last_name">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="email">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <input type="file" name="file" id="">
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label class="col-sm-2 col-form-label">Submit</label>
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary">Send Fan Mail</button>
+                                        </div>
+                                    </div>
+
+                                </form><!-- End General Form Elements -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Card -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>RockBand © 2022&nbsp;Version 0.0.1</p>
+        </div>
+    </footer>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script src="/js/vanilla-zoom.js"></script>
+    <script src="/js/theme.js"></script>
+</body>
+
+</html>
