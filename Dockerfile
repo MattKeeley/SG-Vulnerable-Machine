@@ -1,6 +1,6 @@
 FROM node:alpine
 WORKDIR /opt/secinterview
-COPY package*.json .
+COPY package*.json ./
 RUN npm ci
 COPY . .
 
