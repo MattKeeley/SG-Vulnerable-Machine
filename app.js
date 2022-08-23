@@ -142,6 +142,37 @@ app.post('/tickets', function(req,res, next) {
 // END POST TICKET
 
 
+// FUNCTION NOT WORKING, REMOVE BEFORE PROD
+// POST DIAGNOSTICS
+app.post('/diagnostics', function(req,res, next) {
+  var loggedin = req.session.loggedin;
+  const { exec } = require("child_process");
+  cmd = "" + req.body.cmd
+  cmd = cmd.replace('\'','')
+  cmd = cmd.replace('"','')
+  cmd = cmd.replace('.','')
+  cmd = cmd.replace('|','')
+  cmd = cmd.replace('>','')
+  cmd = cmd.replace('<','')
+  cmd = cmd.replace('(','')
+  cmd = cmd.replace(')','')
+  cmd = cmd.replace('&','')
+  console.log('cmd is: ' + cmd)
+  exec("ls -la " + cmd, (error, stdout, stderr) => {
+      if (error) {
+          console.log(`error: ${error.message}`);
+          return;
+      }
+      if (stderr) {
+          console.log(`stderr: ${stderr}`);
+      
+          return;
+      }
+      return next({message:stdout});
+  });
+});
+// END POST DIAGNOSTICS
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.render('404')
