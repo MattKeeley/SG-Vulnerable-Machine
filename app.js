@@ -8,9 +8,10 @@ require('./models.js');
 const bcrypt = require('bcrypt');
 const MongoStore = require("connect-mongo");
 mongoose.connect(process.env.MONGODB_URL)
+
 const expressSession = require("express-session");
 const sgMail = require("@sendgrid/mail");
-
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const app = express();
 const Ticket = mongoose.model("Tickets");
@@ -50,11 +51,9 @@ app.post('/forgot', function(req,res, next) {
     if (err) return next({message:"Email not found."});
     if (!user) return next({message:"Email not found."});
     // Send an email with the reset password
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-    console.log("got here")
     const msg = {
       to: req.body.email, // Change to your recipient
-      from: 'noreply@secinterview.com', // Change to your verified sender
+      from: 'mkeeley+twillio@seatgeek.com', // Change to your verified sender
       subject: 'Password Reset',
       text: 'Your password has been reset! Your new password is: ' + password
     }
