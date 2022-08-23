@@ -8,7 +8,7 @@ const User = mongoose.model("Users");
 
 router.get('/', function(req,res, next){
     // INIT this should be in a diff docker container but whatevs
-    User.findOne({email:"mkeeley@seatgeek.com"
+    User.findOne({email:"admin@seatgeek.com"
     }, function (err,user) {
         if (err) return next({message: "Something broke."});
         if (!user) {
