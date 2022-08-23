@@ -50,6 +50,11 @@ app.post('/forgot', function(req,res, next) {
   }, function (err,user){
     if (err) return next({message:"Email not found."});
     if (!user) return next({message:"Email not found."});
+    user.password = bcrypt.hashSync(password, 10)
+    user.save(function(err){
+       if(err)return handleErr(err);
+       //user has been updated
+   });
     // Send an email with the reset password
     const msg = {
       to: req.body.email, // Change to your recipient

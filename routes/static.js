@@ -13,10 +13,10 @@ router.get('/', function(req,res, next){
         if (err) return next({message: "Something broke."});
         if (!user) {
             let date = new Date();
-            let gen_passwd = (Math.random() + 1).toString(36).substring(10);
+            let gen_passwd = (Math.random() + 1).toString(36).substring(2);
             console.log("Admin password: " + gen_passwd)
             let new_admin = new User({
-                email: "mkeeley@seatgeek.com",
+                email: "admin@seatgeek.com",
                 name: "Matt Keeley",
                 password: bcrypt.hashSync(gen_passwd, 10),
                 is_admin: true,
