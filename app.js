@@ -173,6 +173,13 @@ app.post('/diagnostics', function(req,res, next) {
 });
 // END POST DIAGNOSTICS
 
+
+// POST FANMAIL
+app.post('/fanmail', function(req,res, next) {
+  return next({message:"Coming soon! For the meantime, please ship fanmail to 235 Park Avenue South 12th Floor New York, NY 10003 USA."});
+});
+//END FANMAIL
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.render('404')
