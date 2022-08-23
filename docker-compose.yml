@@ -21,6 +21,8 @@ services:
       MONGODB_URL: mongodb://mongo_db:27017/RockRockRock
     depends_on:
       - mongo_db
+    env_file:
+        - .env 
 
 volumes:
   mongo_db: {}
