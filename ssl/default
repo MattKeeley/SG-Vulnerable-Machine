@@ -1,15 +1,6 @@
 server {
-    listen 80;
-    server_name _;
-    return 301 https://$host$request_uri;
-}
-
-server {
-  listen       443 ssl;
+  listen       80 ;
   server_name  REPLACEME.secinterview.com;
-  ssl on;
-  ssl_certificate  /etc/nginx/ssl/cert/SecInterview.crt;
-  ssl_certificate_key /etc/nginx/ssl/private/SecInterview.key;
 
   location / {
     proxy_pass http://localhost:3000;
